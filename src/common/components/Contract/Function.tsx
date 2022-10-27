@@ -116,7 +116,7 @@ const Function = ({
       return formatInputData(input);
     }),
     overrides:
-      functionName === "makeClaim" || functionName === "mint"
+      functionName === "makeClaim"
         ? {
             gasLimit: BigNumber.from(250000),
           }
@@ -279,7 +279,7 @@ const Function = ({
               e.preventDefault();
               write?.();
             }}
-            // disabled={txWillError}
+            disabled={txWillError}
           >
             {functionName.includes("claim") || functionName.includes("Claim")
               ? "Claim"
