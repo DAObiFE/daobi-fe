@@ -116,7 +116,7 @@ const Function = ({
       return formatInputData(input);
     }),
     overrides:
-      functionName === "makeClaim"
+      functionName === "makeClaim" || functionName === "mint"
         ? {
             gasLimit: BigNumber.from(250000),
           }
