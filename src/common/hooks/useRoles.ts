@@ -108,9 +108,11 @@ const useRoles = (userAddress: `0x${string}`) => {
     if (!userStructLoading) {
       // check if user registered to vote / claimed username
       let bool = !!userVoterStruct;
-      let courtName = bool
-        ? parseBytes32String?.(userVoterStruct?.["courtName"])
-        : "";
+      let courtName = "";
+      try {
+        courtName = parseBytes32String?.(userVoterStruct?.["courtName"]);
+      } catch (error) {}
+
       if (bool !== isRegistered) setIsRegistered(bool);
       if (courtName !== userCourtName) setUserCourtName(courtName);
     }
@@ -146,9 +148,11 @@ const useRoles = (userAddress: `0x${string}`) => {
     };
 
     if (!chanceStructLoading) {
-      let courtName = parseBytes32String?.(
-        chancellorVoterStruct?.["courtName"]
-      );
+      let courtName = "";
+      try {
+        courtName = parseBytes32String?.(chancellorVoterStruct?.["courtName"]);
+      } catch (error) {}
+
       if (courtName !== chanceName) setChanceName(courtName);
 
       // check if user has more votes than current chancellor
