@@ -279,7 +279,7 @@ const Function = ({
               e.preventDefault();
               write?.();
             }}
-            disabled={txWillError}
+            // disabled={txWillError}
           >
             {functionName.includes("claim") || functionName.includes("Claim")
               ? "Claim"
