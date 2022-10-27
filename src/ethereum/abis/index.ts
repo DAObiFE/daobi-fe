@@ -53,7 +53,7 @@ export const VOTING_CONTRACT: DAOBI_CONTRACT = {
         },
         checkStatus: {
           _voter:
-            "To find out whether a potential rival is currently present in the Imperial Court, enter their address here",
+            "To find out whether a potential rival is currently present in the Imperial Court, \nenter their address here",
         },
         assessVotes: {
           _voter:
@@ -106,7 +106,7 @@ export const TOKEN_CONTRACT: DAOBI_CONTRACT = {
       },
     },
     makeClaim: {
-      title: `You've gained enough favor in the court.\nTime has come to claim your rightful title as Chancellor.`,
+      title: `You've gained enough favor in the court. \nTime has come to claim your rightful title as Chancellor.`,
       methods: {
         makeClaim: {},
       },
@@ -139,12 +139,6 @@ export const TOKEN_CONTRACT: DAOBI_CONTRACT = {
     //   title: "",
     //   methods: {
     //     recoverSeal: {},
-    //   },
-    // },
-    // chancellor: {
-    //   title: "",
-    //   methods: {
-    //     chancellor: {},
     //   },
     // },
   },

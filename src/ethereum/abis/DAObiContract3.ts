@@ -1,6 +1,4 @@
-import { JsonFragment, JsonFragmentType } from "@ethersproject/abi";
-
-export const DAObiContract3: JsonFragment[] = [
+export const DAObiContract3 = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {
     anonymous: false,

@@ -36,10 +36,10 @@ const Home: NextPage = () => {
   }, [twitterStatus]);
 
   useEffect(() => {
-    if (showClaimModal !== canClaimChancellor && !rolesLoading) {
+    if (showClaimModal !== canClaimChancellor) {
       setShowClaimModal(canClaimChancellor);
     }
-  }, [canClaimChancellor, rolesLoading, showClaimModal]);
+  }, [canClaimChancellor, showClaimModal]);
 
   return (
     <div className="flex flex-col w-full h-full grow">
