@@ -105,6 +105,15 @@ export const TOKEN_CONTRACT: DAOBI_CONTRACT = {
         claimChancellorSalary: {},
       },
     },
+    mint: {
+      title: "Introduce additional currency into circulation.",
+      methods: {
+        mint: {
+          amount:
+            "Number of coins to mint \n(these will automatically be transferred to Uniswap on your behalf)",
+        },
+      },
+    },
     makeClaim: {
       title: `You've gained enough favor in the court. \nTime has come to claim your rightful title as Chancellor.`,
       methods: {
@@ -129,12 +138,6 @@ export const TOKEN_CONTRACT: DAOBI_CONTRACT = {
         lastSalaryClaim: {},
       },
     },
-    // mint: {
-    //   title: "",
-    //   methods: {
-    //     mint: {},
-    //   },
-    // },
     // recoverSeal: {
     //   title: "",
     //   methods: {
