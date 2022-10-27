@@ -46,20 +46,24 @@ const Navbar = () => {
                 {currentChancellor.courtName}
               </a>
             </p>
-            <div className="hidden whitespace-nowrap md:inline">
-              {`${
-                !rolesLoading && isChancellor
-                  ? "👑 Welcome Chancellor${}! 🏰"
-                  : `🌾 Maybe one day${
-                      userCourtName.length > 0 ? ", " + userCourtName : ""
-                    }... 🌾`
-              }
+            {address && (
+              <div className="hidden whitespace-nowrap md:inline">
+                {`${
+                  !rolesLoading && isChancellor
+                    ? "👑 Welcome Chancellor${}! 🏰"
+                    : `🌾 Maybe one day${
+                        userCourtName.length > 0 ? ", " + userCourtName : ""
+                      }... 🌾`
+                }
               `}
-            </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex items-center mr-0 w-2/3 text-right md:w-1/3">
-          <div className="inline-block w-1/3">{`${balanceDB}`} $DB</div>
+          {address && (
+            <div className="inline-block w-1/3">{`${balanceDB}`} $DB</div>
+          )}
           <Wallet />
         </div>
       </div>
