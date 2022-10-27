@@ -39,7 +39,8 @@ const Navbar = () => {
         <div className="flex justify-center items-center mx-auto space-x-3 w-1/3 text-center whitespace-nowrap">
           <div className="hidden flex-col justify-center items-center lg:flex">
             <p>
-              Today&#39;s Chancellor is{" "}
+              Today&#39;s Chancellor is
+              {currentChancellor.address.length > 1 ? " " : "..."}
               <a
                 href={`https://mumbai.polygonscan.com/address/${currentChancellor.address}`}
               >
