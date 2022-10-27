@@ -51,7 +51,7 @@ const Navbar = () => {
               <div className="hidden whitespace-nowrap md:inline">
                 {`${
                   !rolesLoading && isChancellor
-                    ? "👑 Welcome Chancellor${}! 🏰"
+                    ? "👑 Welcome Chancellor! 🏰"
                     : `🌾 Maybe one day${
                         userCourtName.length > 0 ? ", " + userCourtName : ""
                       }... 🌾`
