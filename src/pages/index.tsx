@@ -9,15 +9,9 @@ import ContractSelection from "@/components/ContractSelection";
 import MakeClaimModal from "@/components/MakeClaimModal";
 
 const Home: NextPage = () => {
-  const [showClaimModal, setShowClaimModal] = useState(false);
   const { address } = useAccount();
-  const {
-    isVerified,
-    isRegistered,
-    balanceDB,
-    canClaimChancellor,
-    rolesLoading,
-  } = useRoles(address);
+  const { isVerified, isRegistered, balanceDB, rolesLoading } =
+    useRoles(address);
 
   // next-auth twitter
   const { data: twitterSession, status: twitterStatus } = useSession();
@@ -34,12 +28,6 @@ const Home: NextPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [twitterStatus]);
-
-  useEffect(() => {
-    if (showClaimModal !== canClaimChancellor) {
-      setShowClaimModal(canClaimChancellor);
-    }
-  }, [canClaimChancellor, showClaimModal]);
 
   return (
     <div className="flex flex-col w-full h-full grow">
@@ -65,9 +53,7 @@ const Home: NextPage = () => {
           signOut={signOut}
         />
       )}
-      {showClaimModal && (
-        <MakeClaimModal setShowClaimModal={setShowClaimModal} />
-      )}
+      <MakeClaimModal />
       {isRegistered && <ContractSelection />}
     </div>
   );
