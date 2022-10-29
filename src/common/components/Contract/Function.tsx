@@ -115,14 +115,9 @@ const Function = ({
     args: formData?.map((input) => {
       return formatInputData(input);
     }),
-    overrides:
-      functionName === "makeClaim" || functionName === "mint"
-        ? {
-            gasLimit: BigNumber.from(1250000),
-          }
-        : {
-            value: parseEther(msgValue.toString()),
-          },
+    overrides: {
+      value: parseEther(msgValue.toString()),
+    },
     onSuccess() {
       setTxWillError(false);
     },
@@ -279,7 +274,7 @@ const Function = ({
               e.preventDefault();
               write?.();
             }}
-            // disabled={txWillError}
+            disabled={txWillError}
           >
             {functionName.includes("claim") || functionName.includes("Claim")
               ? "Claim"
