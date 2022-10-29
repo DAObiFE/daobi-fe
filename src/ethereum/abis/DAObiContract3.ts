@@ -489,7 +489,7 @@ export const DAObiContract3 = [
     inputs: [{ internalType: "uint256", name: "amount", type: "uint256" }],
     name: "mint",
     outputs: [],
-    stateMutability: "payable",
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
