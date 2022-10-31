@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="w-full border-b border-color-mode">
       <div className="flex justify-between items-center px-6 py-4 mx-auto max-w-screen-2xl h-16">
-        <div className="w-1/3">
+        <div className="w-1/4 md:w-1/3">
           {/* light mode */}
           <div className="relative w-16 h-16 dark:hidden">
             <Image
@@ -36,8 +36,8 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div className="flex justify-center items-center mx-auto space-x-3 w-1/3 text-center whitespace-nowrap">
-          <div className="hidden flex-col justify-center items-center lg:flex">
+        <div className="hidden justify-center items-center mx-auto space-x-3 w-1/3 text-center whitespace-nowrap lg:flex">
+          <div className="flex flex-col justify-center items-center">
             <p>
               Today&#39;s Chancellor is
               {currentChancellor.address.length > 1 ? " " : "..."}
@@ -61,10 +61,8 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <div className="flex items-center mr-0 w-2/3 text-right md:w-1/3">
-          {address && (
-            <div className="inline-block w-1/3">{`${balanceDB}`} $DB</div>
-          )}
+        <div className="flex justify-around items-center mr-0 w-3/4 text-right md:w-1/3">
+          {address && <div className="w-1/3">{`${balanceDB}`} $DB</div>}
           <Wallet />
         </div>
       </div>
