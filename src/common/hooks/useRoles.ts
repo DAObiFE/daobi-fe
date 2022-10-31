@@ -106,12 +106,16 @@ const useRoles = (userAddress: `0x${string}`) => {
   const [userCourtName, setUserCourtName] = useState("");
   useEffect(() => {
     if (!userStructLoading) {
-      // check if user registered to vote / claimed username
-      let bool = !!userVoterStruct;
+      let bool = false;
       let courtName = "";
+
+      // check if user registered to vote / claimed username
       try {
         courtName = parseBytes32String?.(userVoterStruct?.["courtName"]);
       } catch (error) {}
+      if (courtName !== "") {
+        bool = true;
+      }
 
       if (bool !== isRegistered) setIsRegistered(bool);
       if (courtName !== userCourtName) setUserCourtName(courtName);
