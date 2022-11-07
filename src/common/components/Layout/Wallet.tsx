@@ -85,7 +85,7 @@ const Wallet = (): JSX.Element => {
       {isConnected ? (
         <div className="flex flex-col justify-center items-center">
           <button onClick={() => disconnect?.()}>Disconnect</button>
-          {chain?.id !== 80001 && (
+          {chain?.id !== DAOBI_CHAIN_ID && (
             <button
               onClick={() => switchNetwork?.()}
               className="text-red-500 whitespace-nowrap"
