@@ -150,9 +150,9 @@ const Function = ({
         viewRefetch();
       }
     }
+
     refreshEstimates();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formData]);
+  }, [formData, refetch, stateMutability, viewRefetch]);
 
   useEffect(() => {
     if (isLoading) {
@@ -168,9 +168,7 @@ const Function = ({
     if (isError) {
       setToast({ status: "error", hash: data?.hash });
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading, isError, isSuccess]);
+  }, [isLoading, isError, isSuccess, setToast, tx?.status, data?.hash]);
 
   useEffect(() => {
     async function getAndSetFormattedData() {
@@ -223,8 +221,7 @@ const Function = ({
     if (viewData) {
       getAndSetFormattedData();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [viewData, formattedViewData]);
+  }, [viewData, formattedViewData, functionName, provider, currentBlockNumber]);
 
   return (
     <>

@@ -52,7 +52,7 @@ const Wallet = (): JSX.Element => {
     ) {
       switchNetwork?.();
     }
-  }, [isConnected, chain, switchNetwork, pendingChainId]);
+  }, [chain?.id, isConnected, pendingChainId, switchNetwork]);
 
   return (
     <div className="flex gap-4 justify-end items-center w-full">
