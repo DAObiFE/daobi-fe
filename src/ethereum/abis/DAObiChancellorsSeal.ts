@@ -59,12 +59,7 @@ export const DAObiChancellorsSeal = [
         name: "operator",
         type: "address",
       },
-      {
-        indexed: false,
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
+      { indexed: false, internalType: "bool", name: "approved", type: "bool" },
     ],
     name: "ApprovalForAll",
     type: "event",
@@ -85,6 +80,14 @@ export const DAObiChancellorsSeal = [
   {
     anonymous: false,
     inputs: [
+      { indexed: false, internalType: "uint8", name: "version", type: "uint8" },
+    ],
+    name: "Initialized",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
       {
         indexed: false,
         internalType: "address",
@@ -98,12 +101,7 @@ export const DAObiChancellorsSeal = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "role",
-        type: "bytes32",
-      },
+      { indexed: true, internalType: "bytes32", name: "role", type: "bytes32" },
       {
         indexed: true,
         internalType: "bytes32",
@@ -123,12 +121,7 @@ export const DAObiChancellorsSeal = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "role",
-        type: "bytes32",
-      },
+      { indexed: true, internalType: "bytes32", name: "role", type: "bytes32" },
       {
         indexed: true,
         internalType: "address",
@@ -148,12 +141,7 @@ export const DAObiChancellorsSeal = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "role",
-        type: "bytes32",
-      },
+      { indexed: true, internalType: "bytes32", name: "role", type: "bytes32" },
       {
         indexed: true,
         internalType: "address",
@@ -200,18 +188,8 @@ export const DAObiChancellorsSeal = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
       {
         indexed: true,
         internalType: "uint256",
@@ -443,7 +421,7 @@ export const DAObiChancellorsSeal = [
       { internalType: "address", name: "from", type: "address" },
       { internalType: "address", name: "to", type: "address" },
       { internalType: "uint256", name: "tokenId", type: "uint256" },
-      { internalType: "bytes", name: "_data", type: "bytes" },
+      { internalType: "bytes", name: "data", type: "bytes" },
     ],
     name: "safeTransferFrom",
     outputs: [],
@@ -546,11 +524,7 @@ export const DAObiChancellorsSeal = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "newImplementation",
-        type: "address",
-      },
+      { internalType: "address", name: "newImplementation", type: "address" },
     ],
     name: "upgradeTo",
     outputs: [],
@@ -559,11 +533,7 @@ export const DAObiChancellorsSeal = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "newImplementation",
-        type: "address",
-      },
+      { internalType: "address", name: "newImplementation", type: "address" },
       { internalType: "bytes", name: "data", type: "bytes" },
     ],
     name: "upgradeToAndCall",
@@ -634,12 +604,7 @@ export const SealABIConst = [
         name: "operator",
         type: "address",
       },
-      {
-        indexed: false,
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
+      { indexed: false, internalType: "bool", name: "approved", type: "bool" },
     ],
     name: "ApprovalForAll",
     type: "event",
@@ -660,6 +625,14 @@ export const SealABIConst = [
   {
     anonymous: false,
     inputs: [
+      { indexed: false, internalType: "uint8", name: "version", type: "uint8" },
+    ],
+    name: "Initialized",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
       {
         indexed: false,
         internalType: "address",
@@ -673,12 +646,7 @@ export const SealABIConst = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "role",
-        type: "bytes32",
-      },
+      { indexed: true, internalType: "bytes32", name: "role", type: "bytes32" },
       {
         indexed: true,
         internalType: "bytes32",
@@ -698,12 +666,7 @@ export const SealABIConst = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "role",
-        type: "bytes32",
-      },
+      { indexed: true, internalType: "bytes32", name: "role", type: "bytes32" },
       {
         indexed: true,
         internalType: "address",
@@ -723,12 +686,7 @@ export const SealABIConst = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "role",
-        type: "bytes32",
-      },
+      { indexed: true, internalType: "bytes32", name: "role", type: "bytes32" },
       {
         indexed: true,
         internalType: "address",
@@ -775,18 +733,8 @@ export const SealABIConst = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
       {
         indexed: true,
         internalType: "uint256",
@@ -1018,7 +966,7 @@ export const SealABIConst = [
       { internalType: "address", name: "from", type: "address" },
       { internalType: "address", name: "to", type: "address" },
       { internalType: "uint256", name: "tokenId", type: "uint256" },
-      { internalType: "bytes", name: "_data", type: "bytes" },
+      { internalType: "bytes", name: "data", type: "bytes" },
     ],
     name: "safeTransferFrom",
     outputs: [],
@@ -1121,11 +1069,7 @@ export const SealABIConst = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "newImplementation",
-        type: "address",
-      },
+      { internalType: "address", name: "newImplementation", type: "address" },
     ],
     name: "upgradeTo",
     outputs: [],
@@ -1134,11 +1078,7 @@ export const SealABIConst = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "newImplementation",
-        type: "address",
-      },
+      { internalType: "address", name: "newImplementation", type: "address" },
       { internalType: "bytes", name: "data", type: "bytes" },
     ],
     name: "upgradeToAndCall",
