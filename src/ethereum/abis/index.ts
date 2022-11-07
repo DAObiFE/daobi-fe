@@ -65,6 +65,12 @@ export const VOTING_CONTRACT: DAOBI_CONTRACT = {
         },
       },
     },
+    refreshURI: {
+      title: "Refresh Token URI",
+      methods: {
+        refreshTokenURI: {},
+      },
+    },
     abandon: {
       title:
         "Abandon your faction and withdraw into reclusion on your country estates.",
