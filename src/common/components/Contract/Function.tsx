@@ -188,7 +188,7 @@ const Function = ({
             const lastClaimTimestamp = (viewData as BigNumber).toNumber();
             const currentTimestamp = (
               await provider.getBlock(currentBlockNumber)
-            ).timestamp;
+            )?.timestamp;
 
             const secondsSince = currentTimestamp - lastClaimTimestamp;
 
