@@ -104,7 +104,7 @@ export default async function handler(
 
 const initiateVoteContractWithSigner = async () => {
   const provider = new ethers.providers.JsonRpcProvider(
-    "https://rpc-mumbai.maticvigil.com"
+    "https://rpc-mainnet.maticvigil.com"
   );
   await provider.ready;
   const signer = new ethers.Wallet(process.env.PRIVATE_KEY).connect(provider);
