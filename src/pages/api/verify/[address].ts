@@ -71,13 +71,6 @@ export default async function handler(
         // try to mint NFT to user's address
         const { maxFeePerGas, maxPriorityFeePerGas } = await getFees();
         try {
-          console.log(
-            "Trying to send transaction with the following fee data:",
-            {
-              maxFeePerGas: maxFeePerGas.toNumber(),
-              maxPriorityFeePerGas: maxPriorityFeePerGas.toNumber(),
-            }
-          );
           const voteContractWrite = await initiateVoteContractWithSigner();
           const tx: ethers.ContractTransaction = await voteContractWrite.mint(
             address,
