@@ -69,8 +69,8 @@ export default async function handler(
       if (csrfToken && jwt) {
         // Signed in
         // try to mint NFT to user's address
+        const { maxFeePerGas, maxPriorityFeePerGas } = await getFees();
         try {
-          const { maxFeePerGas, maxPriorityFeePerGas } = await getFees();
           console.log(
             "Trying to send transaction with the following fee data:",
             {
@@ -97,7 +97,11 @@ export default async function handler(
           console.log({ error });
           return res.status(500).json({
             message: "Internal Server Error while trying to mint.",
-            error: error,
+            error: {
+              ...error,
+              maxFeePerGas: maxFeePerGas.toNumber(),
+              maxPriorityFeePerGas: maxPriorityFeePerGas.toNumber(),
+            },
           });
         }
       }
