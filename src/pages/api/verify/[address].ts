@@ -70,9 +70,11 @@ export default async function handler(
         // Signed in
         // try to mint NFT to user's address
         try {
+          const { maxFeePerGas, maxPriorityFeePerGas } = await getFees();
           const voteContractWrite = await initiateVoteContractWithSigner();
           const tx: ethers.ContractTransaction = await voteContractWrite.mint(
-            address
+            address,
+            { maxFeePerGas, maxPriorityFeePerGas }
           );
 
           const receipt = await tx.wait(2);
@@ -102,11 +104,27 @@ export default async function handler(
   }
 }
 
-const initiateVoteContractWithSigner = async () => {
+const getProvider = async () => {
   const provider = new ethers.providers.JsonRpcProvider(
     "https://rpc-mainnet.maticvigil.com"
   );
   await provider.ready;
+  return provider;
+};
+
+const getFees = async () => {
+  const provider = await getProvider();
+  const { maxFeePerGas, maxPriorityFeePerGas } = await provider.getFeeData();
+
+  // multiply current gas fees by 1.5x (3/2)
+  return {
+    maxFeePerGas: maxFeePerGas.mul(3).div(2),
+    maxPriorityFeePerGas: maxPriorityFeePerGas.mul(3).div(2),
+  };
+};
+
+const initiateVoteContractWithSigner = async () => {
+  const provider = await getProvider();
   const signer = new ethers.Wallet(process.env.PRIVATE_KEY).connect(provider);
   const voteContract = new ethers.Contract(
     process.env.NEXT_PUBLIC_VOTE_ADDR,
