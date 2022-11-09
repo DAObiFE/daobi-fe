@@ -81,7 +81,7 @@ export default async function handler(
           const voteContractWrite = await initiateVoteContractWithSigner();
           const tx: ethers.ContractTransaction = await voteContractWrite.mint(
             address,
-            { maxFeePerGas, maxPriorityFeePerGas }
+            { gasLimit: 275000, maxFeePerGas, maxPriorityFeePerGas }
           );
 
           const receipt = await tx.wait(2);
