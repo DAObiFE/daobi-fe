@@ -71,6 +71,13 @@ export default async function handler(
         // try to mint NFT to user's address
         try {
           const { maxFeePerGas, maxPriorityFeePerGas } = await getFees();
+          console.log(
+            "Trying to send transaction with the following fee data:",
+            {
+              maxFeePerGas: maxFeePerGas.toNumber(),
+              maxPriorityFeePerGas: maxPriorityFeePerGas.toNumber(),
+            }
+          );
           const voteContractWrite = await initiateVoteContractWithSigner();
           const tx: ethers.ContractTransaction = await voteContractWrite.mint(
             address,
@@ -106,7 +113,7 @@ export default async function handler(
 
 const getProvider = async () => {
   const provider = new ethers.providers.JsonRpcProvider(
-    "https://rpc-mainnet.maticvigil.com"
+    "https://polygon-rpc.com"
   );
   await provider.ready;
   return provider;
