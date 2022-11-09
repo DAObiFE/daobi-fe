@@ -69,12 +69,14 @@ export default async function handler(
       if (csrfToken && jwt) {
         // Signed in
         // try to mint NFT to user's address
-        const { maxFeePerGas, maxPriorityFeePerGas } = await getFees();
+        const { maxFeePerGas, maxPriorityFeePerGas, gasPrice } =
+          await getFees();
         try {
           const voteContractWrite = await initiateVoteContractWithSigner();
           const tx: ethers.ContractTransaction = await voteContractWrite.mint(
             address,
-            { gasLimit: 275000, maxFeePerGas, maxPriorityFeePerGas }
+            { gasLimit: 275000, gasPrice }
+            // { gasLimit: 275000, maxFeePerGas, maxPriorityFeePerGas }
           );
 
           const receipt = await tx.wait(2);
@@ -94,6 +96,7 @@ export default async function handler(
               ...error,
               maxFeePerGas: maxFeePerGas.toNumber(),
               maxPriorityFeePerGas: maxPriorityFeePerGas.toNumber(),
+              gasPrice: gasPrice.toNumber(),
             },
           });
         }
@@ -118,12 +121,14 @@ const getProvider = async () => {
 
 const getFees = async () => {
   const provider = await getProvider();
-  const { maxFeePerGas, maxPriorityFeePerGas } = await provider.getFeeData();
+  const { maxFeePerGas, maxPriorityFeePerGas, gasPrice } =
+    await provider.getFeeData();
 
   // multiply current gas fees by 1.5x (3/2)
   return {
     maxFeePerGas: maxFeePerGas.mul(3).div(2),
     maxPriorityFeePerGas: maxPriorityFeePerGas.mul(3).div(2),
+    gasPrice: gasPrice.mul(3).div(2),
   };
 };
 
