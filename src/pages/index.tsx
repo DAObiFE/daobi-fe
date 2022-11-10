@@ -11,9 +11,16 @@ import { DAOBI_CHAIN_ID } from "@/ethereum/wagmiClient";
 
 const Home: NextPage = () => {
   const { address, isConnected } = useAccount();
-  const { hasVoteToken, isRegistered, isImmolated, balanceDB, rolesLoading } =
-    useRoles(address);
+  const {
+    hasVoteToken,
+    isRegistered,
+    isReclused,
+    isImmolated,
+    balanceDB,
+    rolesLoading,
+  } = useRoles(address);
   const { chain } = useNetwork();
+  console.log({ isReclused, isImmolated });
 
   const isPolygon = chain?.id === DAOBI_CHAIN_ID;
 
@@ -44,7 +51,7 @@ const Home: NextPage = () => {
           Please switch to Polygon before continuing.
         </div>
       )}
-      {isPolygon && (!isRegistered || isImmolated) ? (
+      {isPolygon && (!isRegistered || isImmolated || isReclused) ? (
         <>
           <p
             id="connection"
@@ -60,6 +67,7 @@ const Home: NextPage = () => {
               address={toTrimmedAddress(address)}
               hasVoteToken={hasVoteToken}
               isRegistered={isRegistered}
+              isReclused={isReclused}
               isImmolated={isImmolated}
               balanceDB={balanceDB}
               authToken={authToken}
