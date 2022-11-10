@@ -20,7 +20,6 @@ const Home: NextPage = () => {
     rolesLoading,
   } = useRoles(address);
   const { chain } = useNetwork();
-  console.log({ isReclused, isImmolated });
 
   const isPolygon = chain?.id === DAOBI_CHAIN_ID;
 
