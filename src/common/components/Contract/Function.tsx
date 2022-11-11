@@ -127,7 +127,19 @@ const Function = ({
       value: parseEther(msgValue.toString()),
     },
     onSuccess() {
-      setTxWillError(false);
+      if (functionName === "register") {
+        // require filling out courtName to register
+        let nameIsNull = true;
+        formData.map((input) => {
+          if (input.name === "_name") {
+            if (input.value !== "") nameIsNull = false;
+          }
+        });
+
+        setTxWillError(nameIsNull);
+      } else {
+        setTxWillError(false);
+      }
     },
     onError(error: any) {
       setTxWillError(true);
