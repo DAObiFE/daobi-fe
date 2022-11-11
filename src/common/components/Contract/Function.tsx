@@ -46,9 +46,17 @@ const formatInputData = (input: {
   value: any;
 }) => {
   if (input.name === "amount") {
-    return parseEther?.(input?.value?.toString()) ?? BigNumber.from(0);
+    try {
+      return parseEther(input.value.toString());
+    } catch (error) {
+      return BigNumber.from(0);
+    }
   } else if (typeof input.value === "number") {
-    return BigNumber.from?.(input?.value?.toString()) ?? BigNumber.from(0);
+    try {
+      return BigNumber.from(input.value.toString());
+    } catch (error) {
+      return BigNumber.from(0);
+    }
   } else if (input.name === "_name") {
     // username
     try {
