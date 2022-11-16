@@ -149,6 +149,10 @@ const Function = ({
               } else {
                 amountIsInvalid = false;
               }
+
+              if (input.value.toString().includes(".")) {
+                input.value = Number(input.value).toFixed(2);
+              }
             }
           });
 
